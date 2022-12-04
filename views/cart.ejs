@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="./style.css" rel="stylesheet">
+		<link rel="icon" type="image/jpg" href="./images/icon.jpg">		
+        <script src="./cart.js" type="module" defer></script>
+        <title>Desafio Entregable 21 - Cart</title>
+    </head>
+    <body>
+        <main>
+            <% if (userData) { %>
+				<header class="logContainer">
+					<div class="userContainer">
+						<div class="userData">
+							<p class="userP">Bienvenido <%= userData.username.toUpperCase() %></p>						
+							<p style="display:none" id="userId"><%= userData._id %></p>
+							<p style="display:none" id="cartId"><%= cart._id %></p>							
+							<a href="/user">Datos de Usuario</a>
+						</div>
+						<img class="userImg" src="/profileImages/<%= userData.image %>" alt="user image">		
+										
+					</div>
+				</header>
+			<% } %>
+			<% if (!userData) { %>
+				<div class="logContainer">
+					<p class="userContainer"></p>
+						<p class="userP">No iniciaste sesion</p>
+						<a href="/login">LOGIN</a> 
+					</div>                                  
+				</div>
+			<% } %>
+            <div class="cartContainer">
+                <h2 class="listTitle">CARRITO</h2>
+                <table id="cart">
+                    <thead class="encabezado">
+                        <tr>
+                            <th scope="col" class="col">NOMBRE</th>
+                            <th scope="col" class="col">PRECIO</th>
+                            <th scope="col" class="col">FOTO</th>
+                            <th scope="col" class="col">ELIMINAR</th>
+                        </tr>
+                    </thead>
+                    <tbody class="tbody" id="cartContainer">
+                        
+                    </tbody>							
+                </table>
+                <% if (cart.products.length > 0) { %>
+                    <form action="/carrito/buy" method="GET" id="finalizarCompra">    
+                        <input type="hidden" name="cartId" value="<%=cart._id%>">
+                        <button type="submit" class="finalizarCompra">Terminar Compra</button>
+                    </form>						
+                <% } %>	                
+            </div>
+            <div class="anchor">
+				<a href="/">VOLVER AL HOME</a>                                   
+			</div> 
+        </main>
+    </body>
+</html>

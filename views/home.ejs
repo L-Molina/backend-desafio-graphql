@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/style.css" rel="stylesheet">
+        <link rel="icon" type="image/jpg" href="./images/icon.jpg">
+		<script src="/main.js"></script>
+        <title>Desafio Entregable 21</title>
+    </head>
+    <body>
+        <main>
+            <% if (userData) { %>	
+				<header class="logContainer">
+					<div class="userContainer">
+						<div class="userData">
+							<p class="userP">Bienvenido <%= userData.username.toUpperCase() %></p>	
+							<p style="display:none" id="userId"><%= userData._id %></p>
+							<p style="display:none" id="cartId"><%= cart._id %></p>
+							<a href="/user">Datos de Usuario</a>							
+						</div>
+						<img class="userImg" src="/profileImages/<%= userData.image %>" alt="user image">		
+						<a href="/carrito" id="cartContainer"><img class="cartIcon" src="/images/cart.png" alt="cart">
+							<div id="counter"></div>
+						</a>				
+					</div>
+				</header>
+			<% } %>
+			<% if (!userData) { %>
+				<div class="logContainer">
+					<p class="userContainer"></p>
+						<p class="userP">No estas logueado</p>
+						<a href="/login">LOGIN</a> 
+					</div>                                  
+				</div>
+			<% } %>	
+            <div class="listadoProductos">	
+				<h2 class="listTitle">LISTA DE PRODUCTOS</h2>
+
+				<div class="search anchor">
+					<input type="text" id="searchTab" placeholder="Buscar producto 🔍">					
+				</div>
+
+				<div id="productsContainer"></div>
+			</div>			
+			<% if (userData.username.toLowerCase() == "elmo") { %>				
+				<div class="anchor">
+					<a href="/productos">IR AL PANEL DE ADMINISTRADOR</a>                                   
+				</div> 
+			<% } %>
+        </main>
+    </body>
+</html>

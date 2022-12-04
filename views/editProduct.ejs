@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="./style.css" rel="stylesheet">
+		<link rel="icon" type="image/jpg" href="./images/icon.jpg">		
+        <script src="./editProduct.js" type="module" defer></script>
+        <title>Desafio Entregable 21 - Editar Productos</title>
+    </head>
+    <body>
+        <main>
+            <div class="formulario">				
+				<form class="form" action="/productos/edtiProduct" method="PUT" id="editForm">
+					<legend>EDITAR PRODUCTO</legend>                    
+					<div class="form-group">
+						<label for="name">ID</label>
+						<input type="text" name="_id" id="id" value="<%=id%>" readonly>						
+					</div>
+					<div class="form-group">
+						<label for="name">NOMBE</label>
+						<input type="text" class="form-control" name="name" id="name" placeholder="<%=producto.name%>" required>
+					</div>
+					<div class="form-group">
+						<label for="precio">PRECIO</label>
+						<input type="text" class="form-control" name="price" id="precio" placeholder="<%=producto.price%>" required>
+					</div>
+					<div class="form-group">
+						<label for="precio">CODIGO</label>
+						<input type="text" class="form-control" name="code" id="code" placeholder="<%=producto.code%>" required>
+					</div>
+					<div class="form-group">
+						<label for="precio">DESCRIPCION</label>
+						<input type="text" class="form-control" name="description" id="description" placeholder="<%=producto.description%>" required>
+					</div>
+					<div class="form-group">
+						<label for="precio">STOCK</label>
+						<input type="text" class="form-control" name="stock" id="stock" placeholder="<%=producto.stock%>" required>
+					</div>
+					<div class="form-group">
+						<label for="thumbnail">IMAGEN</label>
+						<input type="thumbnail" class="form-control" name="thumbnail" id="thumbnail" placeholder="<%=producto.thumbnail%>" required>                        
+					</div>             
+					<div class="form-button">
+						<input type="submit" value="EDITAR" class="p-1">             
+					</div> 
+				</form>
+			</div>		
+        </main>
+    </body>
+</html>
