@@ -13,3 +13,5 @@
    ```
    npm node app.js
    ```
+
+4. En http://localhost:8080/graphql esta la interfaz de graphql para realizar consultas y mutaciones especificadas en el archivo queries.graphql
