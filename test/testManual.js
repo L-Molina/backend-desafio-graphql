@@ -5,7 +5,7 @@ const url = "http://localhost:8080/lista-productos";
 const getProducts = async () => {
   try {
     const response = await axios.get(url);
-    console.log('listado de Productis: ', response.data);
+    console.log('Listado de productos: ', response.data);
   } catch (error) {
     console.log(error);
   }

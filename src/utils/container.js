@@ -1,3 +1,4 @@
+import { log } from 'console'
 import * as fs from 'fs'
 
 //list
@@ -45,7 +46,7 @@ const deleteById = async (i, ruta) => {
     const arr = await list(ruta)    
     let index = arr.findIndex(x => x.id == i) 
     if (index == -1) {
-      return ({ error: 'Producto no encontradooooo' })
+      return ({ error: 'Producto no encontrado' })
     }  
     const newArr = arr.filter(el => el.id != i)    
     fs.writeFileSync(ruta, JSON.stringify(newArr, null, 2))    
@@ -62,7 +63,7 @@ const changeById = async (i, object, ruta) => {
     const arr = await list(ruta) 
     let index = arr.findIndex(x => x.id == i)
     if (index == -1) {
-      return ({ error: 'Producto no encontradooo' })
+      return ({ error: 'Producto no encontrado' })
     } 
     object.id = i
     object.timestamp = arr[index].timestamp    

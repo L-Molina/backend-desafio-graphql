@@ -9,6 +9,7 @@ import products from './product/productRouter.js'
 import auth from "./user/authRouter.js";
 import user from "./user/userRouter.js";
 import info from "./user/infoRouter.js";
+import graphql from "./product/graphqlRouter.js";
 import error from './other/errorRouter.js';
 
 //middlewares
@@ -19,5 +20,8 @@ router.use("/user", user);
 router.use("/", home);
 router.use("/info", info);
 router.use("*", error);
+
+//desafio
+router.use("/graphql", graphql);
 
 export { router };
